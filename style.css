@@ -1,0 +1,324 @@
+:root {
+    --blue: #85aff2;
+    --blue-hover: #afc8f0;
+    --red: #be2c01;
+    --skin: #edc090;
+    --yellow: #f2ea1a;
+    --blue-dark: #2e5ced;
+    --black: #08060a;
+    --brown: #643904;
+    --brown2: #673300;
+    --white: white;
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    background-color: var(--blue);
+    flex-direction: column;
+    align-items: center;
+}
+
+.superMario {
+    width: 109px;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.w-5 {
+    width: 10px;
+    height: 5px;
+    background-color: black;
+}
+
+.w-3 {
+    width: 10px;
+    height: 3px;
+    background-color: black;
+
+}
+
+.air-blue {
+    background-color: var(--blue);
+}
+
+.air-blue-hover:hover {
+    background-color: var(--blue-hover);
+}
+
+.red {
+    background-color: var(--red);
+}
+
+.brown {
+    background-color: var(--brown);
+}
+
+.skin-color {
+    background-color: var(--skin);
+}
+
+.black {
+    background-color: var(--black);
+}
+
+.blue {
+    background-color: var(--blue-dark);
+}
+
+.yellow {
+    background-color: var(--yellow);
+}
+
+.brown2 {
+    background-color: var(--brown2);
+}
+
+.white {
+    background-color: var(--white);
+}
+
+.d-none {
+    display: none !important;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+
+/* Tic Tac Toe */
+
+.startScreen {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.startBtn {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 16px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.89);
+    cursor: pointer;
+}
+
+.startBtn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 5px 8px 15px 5px rgba(0, 0, 0, 0.89);
+}
+
+.headline {
+    margin: 50px 0 70px 0;
+}
+
+table {
+    border-collapse: collapse;
+    border: none;
+    table-layout: fixed;
+    position: relative;
+}
+
+tr {
+    width: auto;
+
+}
+
+td {
+    width: 133px;
+    height: 133px;
+    cursor: pointer;
+    position: relative;
+}
+
+table td {
+    border: #08060a solid 5px;
+}
+
+table tr:first-child td {
+    border-top: 0;
+}
+
+table tr:last-child td {
+    border-bottom: 0;
+}
+
+table tr td:first-child {
+    border-left: 0;
+}
+
+table tr td:last-child {
+    border-right: 0;
+}
+
+
+.player {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    width: 417px;
+    position: relative;
+}
+
+.player-subcontainer {
+    width: 187px;
+    height: 187px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 16px 0 16px;
+    transition: all 500ms ease-in-out;
+    transform: translateX(0%);
+    position: absolute;
+    top: -33px;
+    left: -61px;
+    right: 12px;
+}
+
+.winner {
+    margin-bottom: 64px;
+}
+
+.rotate360{
+    transform: rotate(360deg);
+    transition: transform 225ms ease-in-out;
+}
+
+
+/* mobile View */
+
+@media (max-width: 544px) {
+    .w-5 {
+        width: 8px;
+        height: 4px;
+    }
+
+    .w-3 {
+        width: 8px;
+    }
+
+    .superMario {
+        width: 80px;
+    }
+
+    .player-subcontainer {
+        top: -24px;
+        left: 13px;
+        width: 147px;
+        height: 147px;
+    }
+
+    .headline img {
+        width: 255px
+    }
+
+    .player {
+        justify-content: space-around;
+    }
+
+}
+
+
+
+
+    @media (max-width: 430px) {
+        .w-5 {
+            width: 6px;
+            height: 3px;
+        }
+
+        .w-3 {
+            width: 6px;
+        }
+
+        .superMario {
+            width: 63px;
+        }
+
+        td {
+            width: 100px;
+            height: 100px;
+        }
+
+        .headline img {
+            width: 255px
+        }
+
+        .player {
+            width: 333px;
+        }
+
+        .player-subcontainer {
+            top: -16px;
+            left: 6px;
+            width: 120px;
+            height: 120px;
+        }
+
+        .winner {
+            width: 335px;
+        }
+
+        #startBtn {
+            width: 190px;
+        }
+
+    }
+    
+
+    @media (max-width: 335px) {
+        td {
+            width: 80px;
+            height: 80px;
+        }
+
+        .player {
+            width: 230px;
+        }
+
+        .player-subcontainer {
+            left: -17px;
+            width: 115px;
+            height: 115px;
+        }
+
+        .winner {
+            width: 250px;
+        }
+
+        #startBtn {
+            width: 170px;
+        }
+
+        .player-names-img2{
+            width: 55px;
+        }
+        .player-names-img1{
+            width: 60px;
+        }
+
+        
+    }

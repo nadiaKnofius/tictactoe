@@ -2,37 +2,35 @@ let fields = [];
 let shape = 'goomba';
 let shapeBefore;
 let winnerExist = false;
-//different combinations, also in reverse order, so shape rotation can work correctly
+
 let fieldCombinations = [
     [0, 1, 2],
-    [2, 1, 0],
     [3, 4, 5],
-    [5, 4, 3],
     [6, 7, 8],
-    [8, 7, 6],
     [0, 3, 6],
-    [6, 3, 0],
     [1, 4, 7],
-    [7, 4, 1],
     [2, 5, 8],
-    [8, 5, 2],
     [2, 4, 6],
-    [6, 4, 2],
-    [0, 4, 8],
-    [8, 4, 0]
+    [0, 4, 8]
 ];
 
 
 //also restart function
 function startGame() {
+    init();
+    addHoverEffectToFields();
+    hideAllShapes();
+    checkActivePlayer();
+}
+
+
+function init(){
     document.getElementById('winner').classList.add('d-none');
     document.getElementById('startScreen').classList.add('d-none');
     fields = [];
     winnerExist = false;
     shapeBefore = '';
-    addHoverEffectToFields();
-    hideAllShapes();
-    checkActivePlayer();
+    document.getElementById('overlay').classList.add('d-none');
 }
 
 
@@ -135,7 +133,7 @@ function pushSelectedFieldInArray(i) {
     starts to check, if someone has won, when min 6 fields are filled
 */ 
 function checkAmountOfElementsInArray() {
-    if (allFieldsExists() > 5) {
+    if (allFieldsExists() >= 5) {
         checkWinner();
     }
 }
@@ -161,6 +159,7 @@ function checkWinner() {
 function checkFieldCombination(field1, field2, field3) {
     if (fields[field1] === fields[field2] && fields[field2] === fields[field3] && fields[field1]) {
         winnerExist = true;
+        document.getElementById('overlay').classList.remove('d-none');
         showWinLine(field1, field2, field3);
         setTimeout(showWinnerAndRestartScreen, 1000);
         return true;
@@ -215,11 +214,7 @@ function showWinLine(i, i2, i3) {
     for (let index = 0; index < 3; index++) {
         let element = id[index];
         let shapeId = document.getElementById(`${shapeBefore}-${element}`);
-        if(index == 2){
-            setTimeout(addClassListRotate, 15, shapeId);
-        }else{
-            shapeId.classList.add('rotate360');
-        }
+        setTimeout(addClassListRotate, 10, shapeId);
     }
 }
 

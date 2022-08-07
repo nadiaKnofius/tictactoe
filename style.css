@@ -190,7 +190,7 @@ table tr td:last-child {
     justify-content: center;
     align-items: center;
     margin: 0 16px 0 16px;
-    transition: all 500ms ease-in-out;
+    transition: all 225ms ease-in-out;
     transform: translateX(0%);
     position: absolute;
     top: -33px;
@@ -205,6 +205,15 @@ table tr td:last-child {
 .rotate360{
     transform: rotate(360deg);
     transition: transform 225ms ease-in-out;
+}
+
+.overlay{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
 }
 
 
